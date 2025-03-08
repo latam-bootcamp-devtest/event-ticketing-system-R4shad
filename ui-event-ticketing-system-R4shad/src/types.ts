@@ -1,8 +1,19 @@
 export interface Event {
-  id: number
+  id: string
+  name: string
+  date: string
+  image: string
+  price: number
+}
+
+export interface EventDetailedI {
+  id: string
   name: string
   date: Date
+  description: string
   image: string
+  availableTickets: number
+  location: string
   price: number
 }
 

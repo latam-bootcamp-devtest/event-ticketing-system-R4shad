@@ -1,0 +1,7 @@
+.event-container {
+  display: grid;
+}
+.detailed-img {
+  width: 200px;
+  height: auto;
+}

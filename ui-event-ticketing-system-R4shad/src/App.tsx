@@ -1,36 +1,16 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import { fetchEvents } from './functions'
-import { Event } from './types'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { EventDisplayer } from './components/EventDisplayer'
+import { EventDetailed } from './components/EventDetailed'
 function App() {
-  const [events, setEvents] = useState<Event[]>([])
-
-  useEffect(() => {
-    const getEvents = async () => {
-      const eventsResponse = await fetchEvents()
-      console.log(eventsResponse)
-      if (eventsResponse) {
-        setEvents(eventsResponse)
-      }
-    }
-    getEvents()
-  }, [])
-
   return (
-    <>
-      <h1>Event Ticketing System</h1>
-      <div className="event-container">
-        {events.map((event) => (
-          <div key={event.id} className="event">
-            <img className="event-image" src={event.image} alt={event.name} />
-            <p>{event.name}</p>
-
-            <p>{event.price}</p>
-          </div>
-        ))}
-      </div>
-    </>
+    <Router>
+      <h1>Contact Manager System</h1>
+      <Routes>
+        <Route path="/" element={<EventDisplayer />} />
+        <Route path="/:id" element={<EventDetailed />} />
+      </Routes>
+    </Router>
   )
 }
 
