@@ -25,6 +25,7 @@ export const EventDisplayer = () => {
     navigate('/history')
   }
 
+  if (events.length === 0) return <p>No Events</p>
   return (
     <>
       <h1>Event Ticketing System</h1>

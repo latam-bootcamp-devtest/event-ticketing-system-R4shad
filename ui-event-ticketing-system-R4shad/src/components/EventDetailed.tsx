@@ -47,7 +47,7 @@ export const EventDetailed = () => {
           <p>{event.location}</p>
           <p>{event.description}</p>
           <p>{event.availableTickets}</p>
-          <p>{event.price}</p>
+          <p>{event.price}$</p>
           {!isBuying && <button onClick={handleBuy}>Book Tickets</button>}
           {isBuying && <button onClick={handleBuy}>Cancel</button>}
           {isBuying && (
