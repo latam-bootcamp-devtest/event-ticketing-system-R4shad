@@ -25,7 +25,7 @@ export const BookingHistory = () => {
 
   return (
     <>
-      <button onClick={handleBack}>Booking History</button>
+      <button onClick={handleBack}>Go Back</button>
       <div className="card-container">
         {bookings.map((booking) => (
           <div key={booking.id} className="card">
