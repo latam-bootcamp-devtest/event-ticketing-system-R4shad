@@ -5,9 +5,11 @@
 Event Ticketing System
 
 UI COMMANDS:
+cd ui-event-ticketing-system-R4shad/
 npm run dev
 
 API COMMANDS:
+cd api-event-ticketing-system-R4shad/
 npm run ts
 npm run dev
 
@@ -21,3 +23,6 @@ BACKEND:
 us1
 us2 50%
 us3 50%
+
+By: Amir Barra
+Contact: contact.amirbarra@gmail.com | barra.amir14@gmail.com
