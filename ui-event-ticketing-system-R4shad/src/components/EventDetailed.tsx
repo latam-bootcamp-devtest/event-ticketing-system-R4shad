@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { fetchOneEvent } from '../functions'
-
+import { BuyForm } from './BuyForm'
 import './EventDetailed.css'
 import { EventDetailedI } from '../types'
 
@@ -10,6 +10,9 @@ export const EventDetailed = () => {
   const { id } = useParams()
   const [paramId, setParamId] = useState<string>()
   const navigate = useNavigate()
+
+  const [isBuying, setIsBuying] = useState(false)
+
   useEffect(() => {
     if (id) setParamId(id)
     const getEvent = async () => {
@@ -28,6 +31,10 @@ export const EventDetailed = () => {
     navigate('/')
   }
 
+  const handleBuy = () => {
+    setIsBuying(!isBuying)
+  }
+
   if (!event) return <p>Loading</p>
   return (
     <>
@@ -42,6 +49,11 @@ export const EventDetailed = () => {
           <p>{event.description}</p>
           <p>{event.availableTickets}</p>
           <p>{event.price}</p>
+          {!isBuying && <button onClick={handleBuy}>Book Tickets</button>}
+          {isBuying && <button onClick={handleBuy}>Cancel</button>}
+          {isBuying && (
+            <BuyForm price={event.price} paramId={paramId}></BuyForm>
+          )}
         </aside>
       </div>
     </>

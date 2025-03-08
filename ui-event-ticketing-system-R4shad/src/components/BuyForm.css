@@ -1,0 +1,14 @@
+.buy-form {
+  margin-top: 28px;
+  text-align: justify;
+
+  display: grid;
+  gap: 20px;
+}
+.span-line {
+  display: flex;
+  justify-content: space-between;
+}
+.error {
+  color: red;
+}
