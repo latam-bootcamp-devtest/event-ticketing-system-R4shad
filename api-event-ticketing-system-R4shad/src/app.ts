@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { Event } from './models/Event'
-import { EventRoutes } from './routes/event.routes'
+import { eventRoutes } from './routes/event.routes'
 
 export class App {
   app: express.Application
@@ -43,6 +43,6 @@ export class App {
   }
 
   private routes() {
-    this.app.use('/api/events', EventRoutes)
+    this.app.use('/api/events', eventRoutes)
   }
 }

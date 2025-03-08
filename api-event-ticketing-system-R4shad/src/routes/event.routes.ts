@@ -1,6 +1,8 @@
 import { Router } from 'express'
-import { postEvent } from './../controllers/even.controllers'
+import { getEvents, postEvent } from './../controllers/even.controllers'
 
-export const EventRoutes = Router()
+export const eventRoutes = Router()
 
-EventRoutes.post('/', postEvent)
+eventRoutes.post('/', postEvent)
+
+eventRoutes.get('/:page&:pageSize', getEvents)

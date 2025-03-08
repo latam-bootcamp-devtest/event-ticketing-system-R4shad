@@ -32,3 +32,27 @@ export const postEvent = async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Internal server error', error })
   }
 }
+
+export const getEvents = async (req: Request, res: Response) => {
+  try {
+    const page = req.params.page
+    const pageSize = req.params.pageSize
+
+    const transformedPageSize = parseInt(pageSize.split('=')[1])
+    const transformedPage = parseInt(page.split('=')[1])
+    const events = await Event.findAll()
+
+    const totalEvents = events.length
+    const totalPages: number = events.length % transformedPageSize
+    console.log(totalEvents)
+    const resFormat = {
+      currentPage: transformedPage,
+      pageSize: transformedPageSize,
+      totalPages: totalPages,
+      events: events,
+    }
+    res.status(200).json(resFormat)
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error })
+  }
+}
