@@ -42,12 +42,12 @@ export const EventDetailed = () => {
         <aside>
           <img className="detailed-img" src={event.image} alt={event.name} />
         </aside>
-        <aside>
+        <aside className="text-aside">
           <p className="p-name">{event.name}</p>
           <p>{event.location}</p>
           <p>{event.description}</p>
-          <p>{event.availableTickets}</p>
-          <p>{event.price}$</p>
+          <p>availabe tickets: {event.availableTickets}</p>
+          <p>ticket price: {event.price}$</p>
           {!isBuying && <button onClick={handleBuy}>Book Tickets</button>}
           {isBuying && <button onClick={handleBuy}>Cancel</button>}
           {isBuying && (

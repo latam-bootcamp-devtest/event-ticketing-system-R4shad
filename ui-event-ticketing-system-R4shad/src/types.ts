@@ -23,12 +23,12 @@ export const APPLICATION_ID = 'ed12ce45-df1e-428a-953a-5c7fb53e42f0'
 
 export interface FormValues {
   name: string
-  quantity: number
+  quantity: string
 }
 
 export const emptyForm: FormValues = {
   name: '',
-  quantity: 0,
+  quantity: '',
 }
 export interface PostEvent {
   applicationId: string

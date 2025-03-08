@@ -1,7 +1,13 @@
 .event-container {
-  display: grid;
+  display: flex;
+  width: 80%;
+  margin: 2rem;
 }
 .detailed-img {
   width: 200px;
   height: auto;
+  padding: 1rem;
+}
+.text-aside {
+  text-align: justify;
 }
