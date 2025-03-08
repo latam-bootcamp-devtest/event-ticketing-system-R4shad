@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { Event } from './models/Event'
+import { EventRoutes } from './routes/event.routes'
 
 export class App {
   app: express.Application
@@ -20,6 +21,7 @@ export class App {
   async init() {
     try {
       this.connectDatabase()
+      this.routes()
       this.startServer()
     } catch (error) {
       console.error('Error during initialization:', error)
@@ -38,5 +40,9 @@ export class App {
     } catch (error) {
       console.error('Unable to connect to the database:', error)
     }
+  }
+
+  private routes() {
+    this.app.use('/api/events', EventRoutes)
   }
 }
