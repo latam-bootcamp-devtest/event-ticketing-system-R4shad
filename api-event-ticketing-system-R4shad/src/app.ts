@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
+import { Event } from './models/Event'
 
 export class App {
   app: express.Application
@@ -18,6 +19,7 @@ export class App {
 
   async init() {
     try {
+      this.connectDatabase()
       this.startServer()
     } catch (error) {
       console.error('Error during initialization:', error)
@@ -28,5 +30,13 @@ export class App {
     this.app.listen(this.port, () => {
       console.log(`Server running on http://localhost:${this.port}/api`)
     })
+  }
+
+  private async connectDatabase() {
+    try {
+      await Event.sync()
+    } catch (error) {
+      console.error('Unable to connect to the database:', error)
+    }
   }
 }
