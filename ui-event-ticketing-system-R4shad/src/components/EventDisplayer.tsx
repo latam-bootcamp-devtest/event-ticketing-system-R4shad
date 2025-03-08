@@ -10,7 +10,6 @@ export const EventDisplayer = () => {
   useEffect(() => {
     const getEvents = async () => {
       const eventsResponse = await fetchEvents()
-      console.log(eventsResponse)
       if (eventsResponse) {
         setEvents(eventsResponse)
       }
@@ -22,22 +21,27 @@ export const EventDisplayer = () => {
     navigate(`/${id}`)
   }
 
+  const handleHistory = () => {
+    navigate('/history')
+  }
+
   return (
     <>
       <h1>Event Ticketing System</h1>
-      <div className="event-container">
+      <button onClick={handleHistory}>Booking History</button>
+      <div className="card-container">
         {events.map((event) => (
           <div
             key={event.id}
-            className="event"
+            className="card"
             onClick={() => {
               handleClick(event.id)
             }}
           >
-            <img className="event-image" src={event.image} alt={event.name} />
-            <p>{event.name}</p>
+            <img className="card-image" src={event.image} alt={event.name} />
+            <p className="p-name">{event.name}</p>
             <p>{event.date.split('T')[0]}</p>
-            <p>{event.price}</p>
+            <p>{event.price}$</p>
           </div>
         ))}
       </div>

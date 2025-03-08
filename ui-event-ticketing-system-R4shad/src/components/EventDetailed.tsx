@@ -18,7 +18,6 @@ export const EventDetailed = () => {
     const getEvent = async () => {
       if (paramId) {
         const eventResponse = await fetchOneEvent(paramId)
-        console.log(eventResponse)
         if (eventResponse && eventResponse !== null) {
           setEvent(eventResponse)
         }
@@ -44,7 +43,7 @@ export const EventDetailed = () => {
           <img className="detailed-img" src={event.image} alt={event.name} />
         </aside>
         <aside>
-          <p>{event.name}</p>
+          <p className="p-name">{event.name}</p>
           <p>{event.location}</p>
           <p>{event.description}</p>
           <p>{event.availableTickets}</p>

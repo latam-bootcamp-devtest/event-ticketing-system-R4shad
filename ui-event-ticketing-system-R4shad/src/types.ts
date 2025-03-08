@@ -39,3 +39,11 @@ export interface PostEvent {
 }
 
 export const USER_ID = `487c3d4f-0384-4a42-acf4-c1afc80e5c13`
+
+export interface Booking {
+  id: string
+  name: string
+  date: string
+  image: string
+  price: number
+}
