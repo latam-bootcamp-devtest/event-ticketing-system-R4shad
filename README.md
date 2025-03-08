@@ -4,10 +4,20 @@
 
 Event Ticketing System
 
-
 UI COMMANDS:
 npm run dev
 
 API COMMANDS:
 npm run ts
 npm run dev
+
+COMPLETED USER STORIES:
+FRONTEND:
+us1
+us2
+us3
+us4
+BACKEND:
+us1
+us2 50%
+us3 50%
